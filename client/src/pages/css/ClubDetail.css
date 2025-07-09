@@ -1,0 +1,250 @@
+/* ClubDetail.css */
+:root {
+  --primary: #6e8efb;
+  --primary-light: rgba(110, 142, 251, 0.1);
+  --secondary: #a777e3;
+  --accent: #ff7e5f;
+  --text-dark: #2d3748;
+  --text-light: #718096;
+  --bg-light: #f8f9fa;
+  --border: #e2e8f0;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --modal-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.club-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+.club-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.club-header h2 {
+  color: var(--text-dark);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.club-meta {
+  color: var(--text-light);
+  margin: 0.5rem 0;
+}
+
+/* Sections */
+.section {
+  margin: 3rem 0;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--card-shadow);
+}
+
+.section h3 {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Add Button */
+.add-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.add-button:hover {
+  background: #5b7ce8;
+  transform: scale(1.1);
+}
+
+/* Dialog Styles */
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.upload-dialog, .event-dialog {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--modal-shadow);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dialog h4 {
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input[type="file"] {
+  width: 100%;
+  margin: 0.5rem 0 1rem;
+  padding: 0.8rem;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  background: var(--bg-light);
+}
+
+/* Dialog Buttons */
+.dialog-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.upload-btn, .cancel-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.upload-btn:hover {
+  background: #5b7ce8;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: var(--text-dark);
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+/* List Items */
+.item-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.item-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.item-title {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.item-meta {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(220, 53, 69, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background: rgba(220, 53, 69, 0.3);
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .club-detail-container {
+    padding: 1rem;
+  }
+  
+  .item-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .upload-dialog, .event-dialog {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}

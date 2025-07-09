@@ -1,0 +1,211 @@
+/* Clubs.css - Modern & Catchy */
+:root {
+  --primary: #6e8efb;
+  --primary-light: rgba(110, 142, 251, 0.1);
+  --secondary: #a777e3;
+  --accent: #ff7e5f;
+  --text-dark: #2d3748;
+  --text-light: #f8f9fa;
+  --bg-gradient: linear-gradient(135deg, #6e8efb 0%, #a777e3 100%);
+  --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.clubs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.clubs-header {
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.clubs-header::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--bg-gradient);
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+.clubs-nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.clubs-nav-buttons button {
+  padding: 0.8rem 1.8rem;
+  background: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.clubs-nav-buttons button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
+}
+
+.clubs-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.club-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.8rem;
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.club-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--bg-gradient);
+  transition: width 0.3s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.club-card:hover::before {
+  width: 8px;
+}
+
+.club-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.club-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+
+.club-actions button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.view-button {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 10px rgba(110, 142, 251, 0.3);
+}
+
+.view-button:hover {
+  background: #5b7ce8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(110, 142, 251, 0.4);
+}
+
+.follow-button {
+  background: #00c9c8;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 201, 200, 0.3);
+}
+
+.follow-button:hover {
+  background: #00b4b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 201, 200, 0.4);
+}
+
+.unfollow-button {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 126, 95, 0.3);
+}
+
+.unfollow-button:hover {
+  background: #e86f50;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 126, 95, 0.4);
+}
+
+.no-clubs-message {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+/* Add to your index.html or root file */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"> */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .clubs-container {
+    padding: 1.5rem;
+  }
+  
+  .clubs-header {
+    font-size: 2rem;
+  }
+  
+  .clubs-nav-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .clubs-nav-buttons button {
+    width: 100%;
+  }
+  
+  .clubs-list {
+    grid-template-columns: 1fr;
+  }
+}

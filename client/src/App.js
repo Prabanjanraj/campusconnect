@@ -1,26 +1,62 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Clubs from './pages/clubs';
+import ClubDetail from './pages/ClubDetail';
+import LoginPage from './pages/Login';
+import { UserProvider } from './pages/components';
+import Events from './pages/Events';
+import PrivateRoute from './pages/PrivateRoute';
+import Snap from './pages/Snap.js';
 
 function App() {
-  const [message, setMessage] = useState('');
-
-  useEffect(() => {
-    // Make a GET request to your backend server
-    axios.get('http://localhost:5000/')
-      .then(response => {
-        setMessage(response.data);
-      })
-      .catch(error => {
-        console.error('Error connecting to backend:', error);
-        setMessage('Failed to connect to backend');
-      });
-  }, []);
-
   return (
-    <div style={{ textAlign: 'center', marginTop: '100px' }}>
-      <h1>CampusConnect</h1>
-      <p>{message}</p>
-    </div>
+    <UserProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/clubs"
+            element={
+              <PrivateRoute>
+                <Clubs />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/events"
+            element={
+              <PrivateRoute>
+                <Events />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/club-detail"
+            element={
+              <PrivateRoute>
+                <ClubDetail />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/snap"
+            element={
+              <PrivateRoute>
+                <Snap />
+              </PrivateRoute>
+            } 
+          />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 

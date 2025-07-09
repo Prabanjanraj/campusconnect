@@ -3,4 +3,4 @@ client/node_modules/
 .env
 .DS_Store
 dist/
-build/
+build/git
