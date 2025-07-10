@@ -3,7 +3,7 @@
 CampusConnect is a dynamic full-stack web application designed to connect students with their campus clubs, events, and vibrant community. Students can follow clubs, view personalized event feeds, share event photos ("Watups"), and engage with campus culture seamlessly.
 
 ## 🔗 Live Demo
-- **Frontend** (React.js): [campusconnect.vercel.app](https://campusconnect.vercel.app)
+- **Frontend** (React.js): [campusconnect.vercel.app](https://campusconnect-bice.vercel.app/)
 - **Backend** (Node.js + Express): Hosted on Render (contact for link)
 
 ## 🧩 Features
