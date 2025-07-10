@@ -101,7 +101,7 @@ Tested on:
 - Image hosting: Cloudinary upload limits
 
 ## 🧑‍💻 Author
-Built with 💙 by [Prabanjan Raj](https://github.com/Prabanjanraj)
+Built with 💙 by Prabanjan Raj
 
 ## 📌 License
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under nothing, just use it for good :)
