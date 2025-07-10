@@ -10,53 +10,48 @@ app.use(cors());
 app.use(express.json());
 
 const authRoutes = require('./auth');
-app.use('/api/auth', authRoutes);
-
 const timelineRoutes = require('./timeline');
-app.use('/api/timeline', timelineRoutes);
-
 const followRoutes = require('./follow');
-app.use('/api/user', followRoutes);
-
-
 const snapRoutes = require('./snap');
-app.use('/api/snap', snapRoutes);
-
 const eventRoutes = require('./events');
-app.use('/api/events', eventRoutes);
-
 const historyRoutes = require('./history');
+
+app.use('/api/auth', authRoutes);
+app.use('/api/timeline', timelineRoutes);
+app.use('/api/user', followRoutes);
+app.use('/api/snap', snapRoutes);
+app.use('/api/events', eventRoutes);
 app.use('/api/history', historyRoutes);
 
-// Connect to MongoDB (correct DB: clubDB)
-mongoose.connect('mongodb://localhost:27017/clubDB', {
+// Connect to MongoDB using .env
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
+.then(() => console.log('✅ MongoDB connected'))
+.catch(err => console.error('❌ MongoDB connection error:', err));
 
+// Schema
 const clubSchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   description: String,
   admin1: String,
   admin2: String
 }, {
-  collection: 'Club'  // Force Mongoose to use correct collection
+  collection: 'Club'
 });
-
 const Club = mongoose.model('Club', clubSchema);
 
-
-// ✅ Route to get all clubs (full object)
+// Get all clubs
 app.get('/api/clubs', async (req, res) => {
   try {
-    const clubs = await Club.find(); // return all fields
+    const clubs = await Club.find();
     res.json(clubs);
   } catch (err) {
     res.status(500).json({ error: 'Server error' });
   }
 });
 
+// Listen on port from .env
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
