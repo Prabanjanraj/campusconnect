@@ -9,14 +9,14 @@ function Clubs() {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/clubs')
+    fetch('https://campusconnect-9tui.onrender.com/api/clubs')
       .then(res => res.json())
       .then(data => setClubs(data))
       .catch(err => console.error('Error fetching clubs:', err));
 
     const fetchFollowed = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/auth/me', {
+        const res = await fetch('https://campusconnect-9tui.onrender.com/api/auth/me', {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -32,7 +32,7 @@ function Clubs() {
   }, [token]);
 
   const handleFollowToggle = async (clubId, isFollowing) => {
-    const url = `http://localhost:5000/api/user/${isFollowing ? 'unfollow' : 'follow'}`;
+    const url = `https://campusconnect-9tui.onrender.com/api/user/${isFollowing ? 'unfollow' : 'follow'}`;
     try {
       const res = await fetch(url, {
         method: 'POST',

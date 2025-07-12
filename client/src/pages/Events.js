@@ -9,7 +9,7 @@ function Events() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/events/all")
+    fetch("https://campusconnect-9tui.onrender.com/api/events/all")
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch events");
         return res.json();

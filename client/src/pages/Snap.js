@@ -12,7 +12,7 @@ function Snap() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/snap/snaps')
+    fetch('https://campusconnect-9tui.onrender.com/api/snap/snaps')
       .then(res => res.json())
       .then(data => setSnaps(data))
       .catch(err => console.error('Error fetching snaps:', err));
@@ -27,7 +27,7 @@ function Snap() {
     formData.append('user', user.name);
 
     try {
-      await fetch('http://localhost:5000/api/snap/snaps', {
+      await fetch('https://campusconnect-9tui.onrender.com/api/snap/snaps', {
         method: 'POST',
         body: formData,
       });
@@ -37,7 +37,7 @@ function Snap() {
       setCaption('');
       setShowModal(false);
 
-      const res = await fetch('http://localhost:5000/api/snap/snaps');
+      const res = await fetch('https://campusconnect-9tui.onrender.com/api/snap/snaps');
       const updatedSnaps = await res.json();
       setSnaps(updatedSnaps);
     } catch (err) {

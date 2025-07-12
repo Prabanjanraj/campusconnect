@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
-const User = require('./models/User'); // or adjust path like '../models/User'
+const User = require('./models/User'); 
 
 const router = express.Router();
 const JWT_SECRET = 'yourSecretKey'; // You can move this to .env

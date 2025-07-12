@@ -24,8 +24,8 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isLogin
-      ? 'http://localhost:5000/api/auth/login'
-      : 'http://localhost:5000/api/auth/register';
+      ? 'https://campusconnect-9tui.onrender.com/api/auth/login'
+      : 'https://campusconnect-9tui.onrender.com/api/auth/register';
 
     try {
       const res = await axios.post(url, formData);

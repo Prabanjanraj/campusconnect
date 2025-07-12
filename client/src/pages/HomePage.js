@@ -25,7 +25,7 @@ function HomePage() {
 
   useEffect(() => {
     if (user && user._id) {
-      fetch(`http://localhost:5000/api/timeline/${user._id}`)
+      fetch(`https://campusconnect-9tui.onrender.com/api/timeline/${user._id}`)
         .then((res) => res.json())
         .then((data) => {
           if (Array.isArray(data)) {

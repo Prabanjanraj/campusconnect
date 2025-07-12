@@ -25,12 +25,12 @@ function ClubDetail() {
 
   useEffect(() => {
     if (club?.name) {
-      fetch(`http://localhost:5000/api/events/${club.name}`)
+      fetch(`https://campusconnect-9tui.onrender.com/api/events/${club.name}`)
         .then((res) => res.json())
         .then((data) => setEvent(data))
         .catch((err) => console.error('Error fetching events:', err));
 
-      fetch(`http://localhost:5000/api/history/${club.name}`)
+      fetch(`https://campusconnect-9tui.onrender.com/api/history/${club.name}`)
         .then((res) => res.json())
         .then((data) => setHistory(data))
         .catch((err) => console.error('Error fetching history:', err));
@@ -46,7 +46,7 @@ function ClubDetail() {
     formData.append('club', club.name);
 
     try {
-      const res = await fetch('http://localhost:5000/api/history', {
+      const res = await fetch('https://campusconnect-9tui.onrender.com/api/history', {
         method: 'POST',
         body: formData,
       });
@@ -77,7 +77,7 @@ function ClubDetail() {
     formData.append('endDate', eventenddate);
 
     try {
-      const res = await fetch('http://localhost:5000/api/events', {
+      const res = await fetch('https://campusconnect-9tui.onrender.com/api/events', {
         method: 'POST',
         body: formData,
       });
@@ -101,7 +101,7 @@ function ClubDetail() {
 
   const handleDeleteEvent = async (eventName) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/events/by-name/${encodeURIComponent(eventName)}`, {
+      const res = await fetch(`https://campusconnect-9tui.onrender.com/api/events/by-name/${encodeURIComponent(eventName)}`, {
         method: 'DELETE',
       });
       if (res.ok) {
@@ -116,7 +116,7 @@ function ClubDetail() {
 
   const handleDeleteHistory = async (id) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/history/des/${encodeURIComponent(id)}`, {
+      const res = await fetch(`https://campusconnect-9tui.onrender.com/api/history/des/${encodeURIComponent(id)}`, {
         method: 'DELETE',
       });
       if (res.ok) {
